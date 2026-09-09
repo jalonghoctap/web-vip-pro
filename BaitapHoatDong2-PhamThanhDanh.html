@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Giúp website hiển thị tốt trên các thiết bị mobile/tablet/desktop -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="Portfolio cá nhân - Giới thiệu bản thân, kỹ năng và các dự án."
+    >
+
+    <title>Portfolio | Phạm Thành Danh</title>
+</head>
+
+<body>
+
+    <!--
+        HEADER - Semantic Element
+        Vai trò:
+        - Chứa phần đầu trang của Portfolio.
+        - Thường bao gồm logo/tên cá nhân và navigation.
+        - Giúp trình duyệt và screen reader hiểu đây là phần đầu của trang.
+    -->
+    <header>
+
+        <!--
+            NAV - Semantic Element
+            Vai trò:
+            - Chứa các liên kết điều hướng chính của website.
+            - Người dùng có thể nhanh chóng di chuyển đến từng section.
+        -->
+        <nav aria-label="Điều hướng chính">
+            <a href="#home">Trang chủ</a>
+            <a href="#about">Giới thiệu</a>
+            <a href="#projects">Dự án</a>
+            <a href="#contact">Liên hệ</a>
+        </nav>
+
+    </header>
+
+
+    <!--
+        MAIN - Semantic Element
+        Vai trò:
+        - Chứa nội dung chính, độc lập và quan trọng nhất của trang.
+        - Mỗi trang nên có một <main> duy nhất.
+        - Giúp Accessibility tools xác định nhanh nội dung chính.
+    -->
+    <main>
+
+        <!--
+            SECTION 1: HOME
+            Vai trò:
+            - Khu vực giới thiệu ngắn gọn về Portfolio.
+            - Đây thường là "Hero Section", tạo ấn tượng đầu tiên với người truy cập.
+        -->
+        <section id="home" aria-labelledby="home-title">
+            <h1 id="home-title">Xin chào, tôi là Tên của bạn</h1>
+
+            <p>
+                Tôi là một Front-end Developer đam mê xây dựng
+                những website hiện đại và thân thiện với người dùng.
+            </p>
+
+            <a href="#projects">Xem dự án của tôi</a>
+        </section>
+
+
+        <!--
+            SECTION 2: ABOUT
+            Vai trò:
+            - Cung cấp thông tin về bản thân.
+            - Có thể mở rộng để trình bày học vấn, kinh nghiệm,
+              định hướng nghề nghiệp hoặc sở thích.
+        -->
+        <section id="about" aria-labelledby="about-title">
+            <h2 id="about-title">Giới thiệu</h2>
+
+            <p>
+                Tôi đang học tập và phát triển kỹ năng lập trình web,
+                tập trung vào HTML, CSS, JavaScript và các công nghệ
+                Front-end hiện đại.
+            </p>
+
+            <h3>Kỹ năng</h3>
+
+            <ul>
+                <li>HTML5 & Semantic HTML</li>
+                <li>CSS3</li>
+                <li>JavaScript</li>
+                <li>Responsive Web Design</li>
+            </ul>
+        </section>
+
+
+        <!--
+            SECTION 3: PROJECTS
+            Vai trò:
+            - Hiển thị các dự án tiêu biểu trong Portfolio.
+            - Giúp nhà tuyển dụng hoặc khách hàng đánh giá năng lực
+              thực tế của người phát triển.
+        -->
+        <section id="projects" aria-labelledby="projects-title">
+            <h2 id="projects-title">Dự án</h2>
+
+            <article>
+                <h3>Website Portfolio</h3>
+
+                <p>
+                    Website cá nhân được xây dựng bằng HTML5, CSS3
+                    và JavaScript.
+                </p>
+
+                <a href="#" aria-label="Xem dự án Website Portfolio">
+                    Xem dự án
+                </a>
+            </article>
+
+            <article>
+                <h3>Todo App</h3>
+
+                <p>
+                    Ứng dụng quản lý công việc giúp người dùng
+                    thêm, sửa và hoàn thành công việc.
+                </p>
+
+                <a href="#" aria-label="Xem dự án Todo App">
+                    Xem dự án
+                </a>
+            </article>
+
+        </section>
+
+
+        <!--
+            SECTION 4: CONTACT
+            Vai trò:
+            - Cung cấp phương thức liên hệ với chủ Portfolio.
+            - Có thể mở rộng thành form liên hệ hoặc liên kết
+              đến email và mạng xã hội.
+        -->
+        <section id="contact" aria-labelledby="contact-title">
+            <h2 id="contact-title">Liên hệ</h2>
+
+            <p>
+                Bạn có thể liên hệ với tôi qua email:
+            </p>
+
+            <a href="mailto:your-email@example.com">
+                your-email@example.com
+            </a>
+        </section>
+
+    </main>
+
+
+    <!--
+        FOOTER - Semantic Element
+        Vai trò:
+        - Chứa thông tin cuối trang.
+        - Thường dùng cho copyright, thông tin liên hệ,
+          social links hoặc các liên kết bổ sung.
+    -->
+    <footer>
+        <p>
+            &copy; 2026 Tên của bạn. All rights reserved.
+        </p>
+    </footer>
+
+</body>
+</html>
