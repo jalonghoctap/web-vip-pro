@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Minh Nguyễn — Web Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #FAF9F5;
+    --panel: #F1EFE7;
+    --panel-2: #EAE7DC;
+    --ink: #201E19;
+    --muted: #706A5B;
+    --line: #DBD6C8;
+    --add-bg: #E3EEDB;
+    --add-ink: #3F6B3A;
+    --del-bg: #F3E1DE;
+    --del-ink: #9A3E3E;
+    --accent: #285C59;
+    --accent-2: #B4842A;
+    --radius: 5px;
+    --maxw: 760px;
+  }
+
+  *{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    *{ animation-duration:0.01ms !important; transition-duration:0.01ms !important; }
+  }
+
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'IBM Plex Sans', sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  a{ color:var(--accent); }
+  a:focus-visible, button:focus-visible, .tab:focus-visible{
+    outline:2px solid var(--accent);
+    outline-offset:3px;
+  }
+
+  code, .mono{ font-family:'IBM Plex Mono', monospace; }
+
+  .wrap{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0 24px;
+  }
+
+  /* ---------- top bar ---------- */
+  .topbar{
+    border-bottom:1px solid var(--line);
+    background:var(--bg);
+  }
+  .topbar-inner{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:16px 24px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+  }
+  .brand{
+    font-family:'Space Grotesk', sans-serif;
+    font-weight:600;
+    font-size:17px;
+  }
+  .brand .mono{ color:var(--muted); font-size:13px; margin-left:6px; }
+
+  /* ---------- PR header ---------- */
+  header.pr{
+    padding:56px 0 28px;
+  }
+  .pr-status{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    background:var(--add-ink);
+    color:#fff;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    padding:5px 12px;
+    border-radius:999px;
+    margin-bottom:18px;
+  }
+  .pr-status svg{ width:14px; height:14px; }
+
+  h1.title{
+    font-family:'Space Grotesk', sans-serif;
+    font-weight:600;
+    font-size:clamp(28px, 5vw, 40px);
+    line-height:1.2;
+    margin:0 0 6px;
+  }
+  .pr-num{ color:var(--muted); font-weight:500; }
+
+  .pr-meta{
+    display:flex;
+    flex-wrap:wrap;
+    gap:0;
+    margin-top:18px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    color:var(--muted);
+  }
+  .pr-meta span{
+    padding:0 14px;
+    border-left:1px solid var(--line);
+  }
+  .pr-meta span:first-child{ padding-left:0; border-left:none; }
+
+  .branch-flow{
+    margin-top:16px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    color:var(--muted);
+    display:flex;
+    align-items:center;
+    gap:10px;
+    flex-wrap:wrap;
+  }
+  .branch-pill{
+    background:var(--panel);
+    border:1px solid var(--line);
+    padding:4px 10px;
+    border-radius:4px;
+    color:var(--ink);
+  }
+
+  /* ---------- tabs ---------- */
+  nav.tabs{
+    position:sticky;
+    top:0;
+    background:var(--bg);
+    border-bottom:1px solid var(--line);
+    z-index:10;
+  }
+  .tabs-inner{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0 24px;
+    display:flex;
+    gap:4px;
+    overflow-x:auto;
+  }
+  .tab{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    color:var(--muted);
+    text-decoration:none;
+    padding:14px 14px 12px;
+    border-bottom:2px solid transparent;
+    white-space:nowrap;
+    transition:color .15s ease, border-color .15s ease;
+  }
+  .tab:hover{ color:var(--ink); }
+  .tab.active{ color:var(--ink); border-bottom-color:var(--accent); }
+
+  section{ padding:56px 0; border-bottom:1px solid var(--line); }
+  section:last-of-type{ border-bottom:none; }
+
+  .file-head{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    color:var(--muted);
+    margin-bottom:18px;
+  }
+  .file-head .dot{ width:7px; height:7px; border-radius:50%; background:var(--accent-2); }
+
+  h2.sec-title{
+    font-family:'Space Grotesk', sans-serif;
+    font-weight:600;
+    font-size:24px;
+    margin:0 0 20px;
+  }
+
+  /* ---------- about ---------- */
+  .about-grid{
+    display:flex;
+    gap:24px;
+    align-items:flex-start;
+  }
+  .avatar{
+    flex:none;
+    width:64px; height:64px;
+    border-radius:50%;
+    background:var(--accent);
+    color:#fff;
+    font-family:'Space Grotesk', sans-serif;
+    font-weight:600;
+    font-size:22px;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .about-body p{ margin:0 0 14px; color:var(--ink); }
+  .about-body p:last-child{ margin-bottom:0; }
+
+  .labels{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin-top:18px;
+  }
+  .label{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    padding:4px 10px;
+    border-radius:999px;
+    border:1px solid var(--line);
+    color:var(--muted);
+  }
+
+  /* ---------- diff blocks ---------- */
+  .diff{
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    overflow:hidden;
+    margin-bottom:20px;
+    background:#fff;
+  }
+  .diff:last-child{ margin-bottom:0; }
+  .diff-file{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    background:var(--panel);
+    padding:9px 14px;
+    border-bottom:1px solid var(--line);
+    color:var(--ink);
+  }
+  .diff-line{
+    display:flex;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    line-height:1.9;
+  }
+  .diff-line .mark{
+    flex:none;
+    width:28px;
+    text-align:center;
+    color:var(--muted);
+    user-select:none;
+  }
+  .diff-line .content{
+    flex:1;
+    padding-right:14px;
+    white-space:pre-wrap;
+  }
+  .diff-line.add{ background:var(--add-bg); }
+  .diff-line.add .mark{ color:var(--add-ink); }
+  .diff-line.add .content{ color:var(--add-ink); }
+  .diff-line.del{ background:var(--del-bg); }
+  .diff-line.del .mark{ color:var(--del-ink); }
+  .diff-line.del .content{ color:var(--del-ink); }
+  .diff-line.ctx .content{ color:var(--muted); }
+
+  /* ---------- commits ---------- */
+  .commit{
+    display:flex;
+    gap:16px;
+    padding:20px 0;
+    border-top:1px solid var(--line);
+  }
+  .commit:first-child{ border-top:none; padding-top:0; }
+  .commit-dot{
+    flex:none;
+    width:10px; height:10px;
+    border-radius:50%;
+    background:var(--accent);
+    margin-top:8px;
+  }
+  .commit-body{ flex:1; }
+  .commit-msg{
+    font-weight:600;
+    font-size:16px;
+    margin:0 0 4px;
+  }
+  .commit-desc{
+    color:var(--muted);
+    margin:0 0 10px;
+    font-size:15px;
+  }
+  .commit-meta{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    color:var(--muted);
+    display:flex;
+    gap:0;
+  }
+  .commit-meta span{ padding-right:12px; margin-right:12px; border-right:1px solid var(--line); }
+  .commit-meta span:last-child{ border-right:none; margin-right:0; padding-right:0; }
+  .commit-meta .hash{ color:var(--accent); }
+
+  /* ---------- projects ---------- */
+  .stat{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+  }
+  .stat .add{ color:var(--add-ink); }
+  .stat .del{ color:var(--del-ink); }
+
+  .project{
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    margin-bottom:16px;
+    background:#fff;
+  }
+  .project:last-child{ margin-bottom:0; }
+  .project-head{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+    padding:14px 16px;
+    border-bottom:1px solid var(--line);
+    background:var(--panel);
+    flex-wrap:wrap;
+  }
+  .project-name{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:14px;
+    font-weight:500;
+  }
+  .project-body{ padding:16px; }
+  .project-body p{ margin:0 0 14px; color:var(--ink); font-size:15px; }
+  .project-tech{
+    display:flex;
+    flex-wrap:wrap;
+    gap:6px;
+    margin-bottom:14px;
+  }
+  .project-tech span{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    color:var(--muted);
+    background:var(--panel);
+    padding:3px 8px;
+    border-radius:4px;
+  }
+  .project-links{ display:flex; gap:14px; }
+  .project-links a{
+    font-size:14px;
+    font-weight:500;
+    text-decoration:none;
+    border-bottom:1px solid var(--accent);
+    padding-bottom:1px;
+  }
+  .project-links a.muted-link{ color:var(--muted); border-bottom-color:var(--line); }
+
+  /* ---------- contact / merge ---------- */
+  .merge-box{
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:28px;
+    background:var(--panel);
+    text-align:left;
+  }
+  .merge-box h3{
+    font-family:'Space Grotesk', sans-serif;
+    font-size:19px;
+    margin:0 0 8px;
+  }
+  .merge-box p{ color:var(--muted); margin:0 0 20px; font-size:15px; }
+  .merge-btn{
+    display:inline-block;
+    background:var(--accent);
+    color:#fff;
+    font-weight:600;
+    font-size:15px;
+    padding:12px 22px;
+    border-radius:var(--radius);
+    text-decoration:none;
+    transition:background .15s ease;
+  }
+  .merge-btn:hover{ background:#1c433f; }
+
+  .contact-list{
+    margin-top:22px;
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:14px;
+  }
+  .contact-list a{ color:var(--ink); text-decoration:none; }
+  .contact-list a:hover{ color:var(--accent); }
+  .contact-list .k{ color:var(--muted); display:inline-block; width:78px; }
+
+  footer{
+    padding:30px 0 60px;
+    color:var(--muted);
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+  }
+
+  @keyframes fadeUp{
+    from{ opacity:0; transform:translateY(10px); }
+    to{ opacity:1; transform:translateY(0); }
+  }
+  header.pr{ animation:fadeUp .5s ease both; }
+
+  @media (max-width:600px){
+    .about-grid{ flex-direction:column; }
+    .commit-meta{ flex-wrap:wrap; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">minh-nguyen<span class="mono">/portfolio</span></div>
+    <div class="mono" style="font-size:12px; color:var(--muted);">main</div>
+  </div>
+</div>
+
+<div class="wrap">
+  <header class="pr">
+    <span class="pr-status">
+      <svg viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.5"/><path d="M5 8l2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      Đang mở
+    </span>
+    <h1 class="title">Giới thiệu bản thân <span class="pr-num">#01</span></h1>
+    <div class="pr-meta">
+      <span>Minh Nguyễn</span>
+      <span>Web Developer</span>
+      <span>TP. Hồ Chí Minh</span>
+    </div>
+    <div class="branch-flow">
+      <span class="branch-pill">portfolio/minh-nguyen</span>
+      muốn merge vào
+      <span class="branch-pill">main</span>
+    </div>
+  </header>
+
+  <nav class="tabs">
+    <div class="tabs-inner">
+      <a href="#about" class="tab active">Tổng quan</a>
+      <a href="#skills" class="tab">Kỹ năng</a>
+      <a href="#experience" class="tab">Kinh nghiệm</a>
+      <a href="#projects" class="tab">Dự án</a>
+      <a href="#contact" class="tab">Liên hệ</a>
+    </div>
+  </nav>
+
+  <section id="about">
+    <div class="file-head"><span class="dot"></span> README.md</div>
+    <div class="about-grid">
+      <div class="avatar">MN</div>
+      <div class="about-body">
+        <p>Xin chào, mình là Minh — một web developer thích biến ý tưởng thành sản phẩm chạy được thật, không chỉ nằm trên giấy. Mình làm việc chủ yếu ở phần frontend, nhưng vẫn thoải mái xử lý API và cơ sở dữ liệu khi cần đi hết một tính năng từ đầu đến cuối.</p>
+        <p>Mình thích code sạch, dễ đọc hơn là code "chạy được là xong", và luôn cố gắng hiểu vì sao một giải pháp hoạt động trước khi copy nó vào dự án.</p>
+        <div class="labels">
+          <span class="label">frontend</span>
+          <span class="label">react</span>
+          <span class="label">typescript</span>
+          <span class="label">node.js</span>
+          <span class="label">ui/ux</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <h2 class="sec-title">Kỹ năng</h2>
+
+    <div class="diff">
+      <div class="diff-file">frontend.json</div>
+      <div class="diff-line add"><span class="mark">+</span><span class="content">"javascript": "advanced",</span></div>
+      <div class="diff-line add"><span class="mark">+</span><span class="content">"react": "advanced",</span></div>
+      <div class="diff-line add"><span class="mark">+</span><span class="content">"typescript": "intermediate",</span></div>
+      <div class="diff-line ctx"><span class="mark"> </span><span class="content">"html_css": "advanced",</span></div>
+      <div class="diff-line del"><span class="mark">-</span><span class="content">"jquery": "không còn dùng nữa",</span></div>
+    </div>
+
+    <div class="diff">
+      <div class="diff-file">backend.json</div>
+      <div class="diff-line add"><span class="mark">+</span><span class="content">"node_express": "intermediate",</span></div>
+      <div class="diff-line ctx"><span class="mark"> </span><span class="content">"rest_api": "intermediate",</span></div>
+      <div class="diff-line ctx"><span class="mark"> </span><span class="content">"postgresql": "cơ bản",</span></div>
+    </div>
+
+    <div class="diff">
+      <div class="diff-file">tools.json</div>
+      <div class="diff-line add"><span class="mark">+</span><span class="content">"git": "hàng ngày",</span></div>
+      <div class="diff-line add"><span class="mark">+</span><span class="content">"figma": "đọc & dựng giao diện",</span></div>
+      <div class="diff-line ctx"><span class="mark"> </span><span class="content">"docker": "cơ bản",</span></div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <h2 class="sec-title">Lịch sử commit</h2>
+
+    <div class="commit">
+      <div class="commit-dot"></div>
+      <div class="commit-body">
+        <p class="commit-msg">Frontend Developer — Công ty Ví Dụ</p>
+        <p class="commit-desc">Xây dựng và duy trì các giao diện React cho sản phẩm nội bộ, phối hợp trực tiếp với designer để đưa mockup thành component tái sử dụng được.</p>
+        <div class="commit-meta">
+          <span class="hash">a3f9c1e</span>
+          <span>2023 — hiện tại</span>
+          <span>Toàn thời gian</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="commit">
+      <div class="commit-dot"></div>
+      <div class="commit-body">
+        <p class="commit-msg">Junior Web Developer — Studio ABC</p>
+        <p class="commit-desc">Phát triển landing page và website cho khách hàng vừa và nhỏ, tối ưu tốc độ tải trang và chuẩn SEO cơ bản.</p>
+        <div class="commit-meta">
+          <span class="hash">7bd21f4</span>
+          <span>2021 — 2023</span>
+          <span>Toàn thời gian</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="commit">
+      <div class="commit-dot"></div>
+      <div class="commit-body">
+        <p class="commit-msg">Bắt đầu học lập trình web</p>
+        <p class="commit-desc">Tự học HTML, CSS, JavaScript qua các dự án cá nhân nhỏ trước khi theo một khoá bootcamp fullstack.</p>
+        <div class="commit-meta">
+          <span class="hash">1f0a9c2</span>
+          <span>2020</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2 class="sec-title">Files changed <span style="color:var(--muted); font-weight:400; font-size:16px;">(3 dự án)</span></h2>
+
+    <div class="project">
+      <div class="project-head">
+        <span class="project-name">quan-ly-cong-viec.tsx</span>
+        <span class="stat"><span class="add">+ trực tuyến</span></span>
+      </div>
+      <div class="project-body">
+        <p>Ứng dụng quản lý công việc nhóm, hỗ trợ kéo-thả trạng thái task và cập nhật theo thời gian thực.</p>
+        <div class="project-tech"><span>React</span><span>TypeScript</span><span>Firebase</span></div>
+        <div class="project-links">
+          <a href="#">Xem code</a>
+          <a href="#" class="muted-link">Demo trực tiếp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="project">
+      <div class="project-head">
+        <span class="project-name">cua-hang-online.js</span>
+        <span class="stat"><span class="add">+ trực tuyến</span></span>
+      </div>
+      <div class="project-body">
+        <p>Website bán hàng đơn giản với giỏ hàng, trang thanh toán và trang quản trị sản phẩm.</p>
+        <div class="project-tech"><span>Next.js</span><span>Node.js</span><span>PostgreSQL</span></div>
+        <div class="project-links">
+          <a href="#">Xem code</a>
+          <a href="#" class="muted-link">Demo trực tiếp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="project">
+      <div class="project-head">
+        <span class="project-name">landing-page-startup.html</span>
+        <span class="stat"><span class="del">tạm dừng</span></span>
+      </div>
+      <div class="project-body">
+        <p>Landing page cho một dự án startup, tập trung vào tốc độ tải trang và khả năng chuyển đổi (conversion).</p>
+        <div class="project-tech"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+        <div class="project-links">
+          <a href="#">Xem code</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2 class="sec-title">Sẵn sàng để merge</h2>
+    <div class="merge-box">
+      <h3>Muốn làm việc cùng nhau?</h3>
+      <p>Mình luôn sẵn sàng trao đổi về cơ hội hợp tác, dự án freelance hoặc đơn giản là nói chuyện về công nghệ.</p>
+      <a href="mailto:minh.nguyen@example.com" class="merge-btn">Liên hệ với mình</a>
+      <div class="contact-list">
+        <div><span class="k">email</span><a href="mailto:minh.nguyen@example.com">minh.nguyen@example.com</a></div>
+        <div><span class="k">github</span><a href="#">github.com/minhnguyen</a></div>
+        <div><span class="k">linkedin</span><a href="#">linkedin.com/in/minhnguyen</a></div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    portfolio.html — cập nhật lần cuối 2026
+  </footer>
+</div>
+
+<script>
+  const tabs = document.querySelectorAll('.tab');
+  const sections = document.querySelectorAll('section[id]');
+
+  const setActive = (id) => {
+    tabs.forEach(t => t.classList.toggle('active', t.getAttribute('href') === '#' + id));
+  };
+
+  if ('IntersectionObserver' in window){
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) setActive(entry.target.id);
+      });
+    }, { rootMargin: '-40% 0px -55% 0px' });
+    sections.forEach(s => observer.observe(s));
+  }
+</script>
+
+</body>
+</html>
