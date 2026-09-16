@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Hootie - Web Design Portfolio</title>
+</head>
+
+<body>
+
+    <!-- ========================================================
+       HEADER: khối mở đầu của trang, thường chứa danh tính chủ
+       trang (tên/logo) và menu điều hướng <nav>. Đây là phần
+       lặp lại giống nhau nếu website có nhiều trang.
+       ======================================================== -->
+    <header>
+        <h1>Hootie</h1>
+        <p>Sinh viên Thiết kế Web - Đại học Lạc Hồng</p>
+
+        <!-- NAV: danh sách các liên kết điều hướng chính, ở đây trỏ
+         tới từng section bên trong main bằng anchor (#id). -->
+        <nav>
+            <ul>
+                <li><a href="#gioi-thieu">Giới thiệu</a></li>
+                <li><a href="#ky-nang">Kỹ năng</a></li>
+                <li><a href="#du-an">Dự án</a></li>
+                <li><a href="#lien-he">Liên hệ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ========================================================
+       MAIN: nội dung chính và duy nhất của trang này (không lặp
+       lại ở trang khác). Gồm 3 <section>, mỗi section là một
+       chủ đề nội dung độc lập, có id để nav trỏ tới.
+       ======================================================== -->
+    <main>
+
+        <!-- SECTION 1: Giới thiệu bản thân -->
+        <section id="gioi-thieu">
+            <h2>Giới thiệu</h2>
+            <p>
+                Mình là sinh viên ngành Thiết kế Web, đang học cách dựng
+                giao diện từ cấu trúc HTML ngữ nghĩa đến logic tương tác
+                bằng JavaScript, đồng thời rèn thêm nền tảng Cấu trúc dữ
+                liệu và Giải thuật để viết code rõ ràng, dễ bảo trì hơn.
+            </p>
+        </section>
+
+        <!-- SECTION 2: Kỹ năng -->
+        <section id="ky-nang">
+            <h2>Kỹ năng</h2>
+            <ul>
+                <li>HTML &amp; CSS (ngữ nghĩa, responsive)</li>
+                <li>JavaScript (DOM, sự kiện, fetch)</li>
+                <li>Cấu trúc dữ liệu &amp; Giải thuật</li>
+                <li>Thiết kế giao diện (bố cục, màu sắc, typography)</li>
+            </ul>
+        </section>
+
+        <!-- SECTION 3: Dự án -->
+        <section id="du-an">
+            <h2>Dự án</h2>
+
+            <article>
+                <h3>Trang landing sự kiện trường</h3>
+                <p>Giao diện một trang cho sự kiện của lớp, tối ưu hiển thị trên điện thoại.</p>
+            </article>
+
+            <article>
+                <h3>Bộ sưu tập ảnh cá nhân</h3>
+                <p>Thư viện ảnh dạng lưới, sắp xếp lại theo kích thước màn hình.</p>
+            </article>
+
+            <article>
+                <h3>Ứng dụng ghi chú nhỏ</h3>
+                <p>Thêm, sửa, xoá ghi chú và lưu tạm trong bộ nhớ trình duyệt.</p>
+            </article>
+
+            <article>
+                <h3>Bài tập Cấu trúc dữ liệu</h3>
+                <p>Trực quan hoá một vài giải thuật sắp xếp bằng HTML thuần.</p>
+            </article>
+        </section>
+
+    </main>
+
+    <!-- ========================================================
+       FOOTER: khối kết thúc trang, chứa thông tin bổ trợ như
+       liên hệ, mạng xã hội và dòng bản quyền. Không phải nội
+       dung chính, chỉ lặp lại ở cuối mọi trang.
+       ======================================================== -->
+    <footer id="lien-he">
+        <h2>Liên hệ</h2>
+        <p>Email: <a href="mailto:hootie@example.com">hootie@example.com</a></p>
+        <p><a href="#">github.com/hootie</a></p>
+        <p><a href="#">linkedin.com/in/hootie</a></p>
+        <p>&copy; 2026 Hootie - Đại học Lạc Hồng.</p>
+    </footer>
+
+</body>
+
+</html>
