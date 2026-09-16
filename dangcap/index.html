@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Các hoạt động trong buổi học thực hành HTML và CSS.">
+	<title>Các hoạt động trong buổi học</title>
+	<style>
+		:root {
+			--blue: #234c9f;
+			--gold: #b48312;
+			--ink: #3f4058;
+			--paper: #f8f8ff;
+			--line: #d6d8e3;
+		}
+
+		* { box-sizing: border-box; }
+
+		html { scroll-behavior: smooth; }
+
+		body {
+			margin: 0;
+			min-height: 100vh;
+			background: var(--paper);
+			color: var(--ink);
+			font-family: Arial, Helvetica, sans-serif;
+		}
+
+		.page {
+			width: min(100% - 104px, 1620px);
+			margin: 0 auto;
+			padding: 42px 0 72px;
+		}
+
+		.lesson-label {
+			display: inline-block;
+			padding: 7px 17px 8px;
+			border: 2px solid var(--blue);
+			border-radius: 8px;
+			color: var(--blue);
+			font-size: clamp(18px, 1.8vw, 25px);
+			line-height: 1;
+		}
+
+		h1 {
+			margin: 20px 0 54px;
+			color: var(--gold);
+			font-size: clamp(42px, 5.2vw, 78px);
+			line-height: 1.05;
+			letter-spacing: -.035em;
+			text-transform: uppercase;
+		}
+
+		.activities {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			gap: 32px;
+		}
+
+		.activity {
+			min-width: 0;
+			padding-top: 0;
+			animation: rise-in .7s ease both;
+		}
+
+		.activity:nth-child(2) { animation-delay: .12s; }
+		.activity:nth-child(3) { animation-delay: .24s; }
+
+		.activity-number {
+			display: block;
+			padding-bottom: 12px;
+			border-bottom: 4px solid var(--blue);
+			color: var(--ink);
+			font-size: clamp(22px, 2vw, 32px);
+			line-height: 1;
+		}
+
+		.activity h2 {
+			margin: 24px 0 24px;
+			min-height: 86px;
+			color: var(--ink);
+			font-size: clamp(26px, 2.5vw, 40px);
+			line-height: 1.16;
+			letter-spacing: -.025em;
+			text-transform: uppercase;
+		}
+
+		.activity p {
+			margin: 0;
+			font-size: clamp(20px, 1.75vw, 29px);
+			line-height: 1.75;
+		}
+
+		.activity strong { font-weight: 700; }
+		code { padding: 2px 5px; background: #ececf4; border-radius: 4px; font: inherit; }
+
+		.activity:hover h2 { color: var(--blue); transition: color .25s ease; }
+
+		@keyframes rise-in {
+			from { opacity: 0; transform: translateY(20px); }
+			to { opacity: 1; transform: translateY(0); }
+		}
+
+		@media (max-width: 900px) {
+			.page { width: min(100% - 48px, 720px); }
+			h1 { margin-bottom: 38px; }
+			.activities { grid-template-columns: 1fr; gap: 40px; }
+			.activity h2 { min-height: auto; }
+			.activity p { font-size: 19px; line-height: 1.6; }
+		}
+
+		@media (prefers-reduced-motion: reduce) {
+			html { scroll-behavior: auto; }
+			.activity { animation: none; }
+		}
+	</style>
+</head>
+<body>
+	<main class="page">
+		<p class="lesson-label">THỰC HÀNH TẠI LỚP · 135 PHÚT</p>
+		<h1>CÁC HOẠT ĐỘNG TRONG BUỔI HỌC</h1>
+
+		<section class="activities" aria-label="Danh sách hoạt động trong buổi học">
+			<article class="activity">
+				<span class="activity-number">01</span>
+				<h2>Hoạt động 1 — "Flex &amp; Grid Battle" (30 phút)</h2>
+				<p>Giải các thử thách căn chỉnh nhanh: căn giữa phần tử, tạo menu dàn đều, xây lưới ảnh 3 cột. Sinh viên dùng AI và giải thích lựa chọn kỹ thuật.</p>
+			</article>
+
+			<article class="activity">
+				<span class="activity-number">02</span>
+				<h2>Hoạt động 2 — Bài thực hành số 2 (60 phút)</h2>
+				<p>Xây hệ thống lưới cho <strong>Portfolio cá nhân</strong>: CSS Grid cho bố cục tổng thể, Flexbox cho danh sách kỹ năng tự xuống dòng, <code>gap</code> đồng nhất.</p>
+			</article>
+
+			<article class="activity">
+				<span class="activity-number">03</span>
+				<h2>Hoạt động 3 — Debug &amp; Refactor (45 phút)</h2>
+				<p>So sánh mã CSS giữa các nhóm, tìm và lược bỏ thuộc tính dư thừa do AI thêm vào. Mục tiêu: mã nguồn gọn, rõ, dễ bảo trì.</p>
+			</article>
+		</section>
+	</main>
+</body>
+</html>
