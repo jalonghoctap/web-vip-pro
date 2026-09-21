@@ -1,0 +1,163 @@
+/* =========================================
+   1. BỐ CỤC TỔNG THỂ & RESET (CSS GRID)
+========================================= */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    color: #333;
+    background-color: #f4f7f6;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+}
+
+/* =========================================
+   2. HEADER & MENU (FLEXBOX)
+========================================= */
+header {
+    background: #1a252c;
+    color: #fff;
+    padding: 2rem 0;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+header h1 {
+    margin: 0 0 10px 0;
+    font-size: 2.5rem;
+    letter-spacing: 1px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap; /* Tránh vỡ menu trên điện thoại */
+}
+
+nav ul li a {
+    color: #a8b2d1;
+    text-decoration: none;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #64ffda; /* Màu xanh neon khi di chuột vào */
+}
+
+/* =========================================
+   3. KHU VỰC NỘI DUNG CHÍNH (MAIN)
+========================================= */
+main {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.section-block {
+    background: #fff;
+    padding: 2.5rem;
+    margin-bottom: 2.5rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+}
+
+.section-block h2 {
+    color: #1a252c;
+    border-bottom: 3px solid #64ffda;
+    display: inline-block;
+    padding-bottom: 5px;
+    margin-top: 0;
+}
+
+/* =========================================
+   4. PHẦN KỸ NĂNG (FLEXBOX)
+========================================= */
+#skills ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 15px;       
+}
+
+#skills li {
+    background: #e6f7ff;
+    padding: 12px 20px;
+    border-radius: 8px;
+    border-left: 4px solid #1890ff;
+    font-size: 0.95rem;
+    flex-grow: 1; /* Giúp các thẻ tự động dãn cho đều không gian */
+}
+
+/* =========================================
+   5. PHẦN DỰ ÁN (CSS GRID)
+========================================= */
+.project-grid {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    /* Tự động chia cột: nếu màn to thì 2 cột, màn nhỏ thì 1 cột */
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 25px;
+}
+
+.project-grid li {
+    background: #fafafa;
+    padding: 20px;
+    border: 1px solid #eaeaea;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-grid li:hover {
+    transform: translateY(-5px); /* Hiệu ứng nảy lên khi hover */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.project-grid h3 {
+    margin-top: 0;
+    color: #1890ff;
+}
+
+/* =========================================
+   6. PHẦN SỞ THÍCH (FLEXBOX)
+========================================= */
+.hobby-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.hobby-tags span {
+    background: #f0f2f5;
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-weight: 500;
+    color: #555;
+}
+
+/* =========================================
+   7. FOOTER
+========================================= */
+footer {
+    text-align: center;
+    padding: 2rem;
+    background: #1a252c;
+    color: #a8b2d1;
+}
+
+footer a {
+    color: #64ffda;
+    text-decoration: none;
+}
