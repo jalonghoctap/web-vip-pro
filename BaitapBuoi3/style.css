@@ -1,11 +1,20 @@
 :root {
   --primary: #2563eb;
-  --primary-dark: #1e3a8a;
-  --text: #1e293b;
-  --muted: #64748b;
+  --primary-light: #dbeafe;
+  --primary-lighter: #eff6ff;
+  --primary-hover: #bfdbfe;
+  --secondary: #10b981;
+  --gray-light: #e2e8f0;
+  --gray-medium: #64748b;
+  --gray-dark: #1e293b;
   --background: #f8fafc;
   --surface: #ffffff;
-  --border: #dbe4f0;
+
+  --space-sm: 12px;
+  --space-md: 24px;
+  --space-lg: 48px;
+  --space-xl: 64px;
+  --space-2xl: 80px;
 }
 
 * {
@@ -19,7 +28,7 @@ html {
 body {
   margin: 0;
   background: var(--background);
-  color: var(--text);
+  color: var(--gray-dark);
   font-family: Arial, sans-serif;
   line-height: 1.6;
 }
@@ -35,7 +44,7 @@ a {
 
 .site-header {
   background: var(--surface);
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid var(--gray-light);
 }
 
 .navbar {
@@ -47,7 +56,7 @@ a {
 }
 
 .logo {
-  color: var(--primary-dark);
+  color: var(--secondary);
   font-size: 1.35rem;
   font-weight: 700;
   text-decoration: none;
@@ -63,7 +72,7 @@ a {
 }
 
 .nav-list a {
-  color: var(--muted);
+  color: var(--gray-medium);
   font-size: .95rem;
   text-decoration: none;
 }
@@ -76,8 +85,8 @@ a {
   display: grid;
   grid-template-columns: 1fr 280px;
   align-items: center;
-  gap: 48px;
-  padding: 80px 0;
+  gap: var(--space-lg);
+  padding: var(--space-2xl) 0;
 }
 
 .eyebrow {
@@ -99,7 +108,7 @@ a {
 .hero-description {
   max-width: 600px;
   margin: 0 0 28px;
-  color: var(--muted);
+  color: var(--gray-medium);
   font-size: 1.1rem;
 }
 
@@ -114,12 +123,12 @@ a {
 }
 
 .button:hover {
-  background: var(--primary-dark);
+  background: var(--secondary);
 }
 
 .profile-card {
   padding: 28px;
-  border: 1px solid var(--border);
+  border: 1px solid var(--gray-light);
   border-radius: 12px;
   background: var(--surface);
   text-align: center;
@@ -133,24 +142,22 @@ a {
 
 .profile-card p {
   margin: 4px 0;
-  color: var(--muted);
+  color: var(--gray-medium);
 }
 
 .avatar {
-  display: grid;
-  width: 100px;
-  height: 100px;
+  display: block;
+  width: 120px;
+  height: 120px;
   margin: 0 auto 18px;
-  place-items: center;
   border-radius: 50%;
-  background: #dbeafe;
-  color: var(--primary-dark);
-  font-size: 2rem;
-  font-weight: 700;
+  object-fit: cover;
+  border: 3px solid var(--primary-light);
+  box-shadow: 0 4px 12px rgba(30, 58, 138, 0.15);
 }
 
 .section {
-  padding: 64px 0;
+  padding: var(--space-xl) 0;
 }
 
 .section-title {
@@ -161,19 +168,19 @@ a {
 .section-intro {
   max-width: 680px;
   margin: 0 0 28px;
-  color: var(--muted);
+  color: var(--gray-medium);
 }
 
 .about-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 24px;
+  gap: var(--space-md);
 }
 
 .content-box,
 .project-card {
   padding: 24px;
-  border: 1px solid var(--border);
+  border: 1px solid var(--gray-light);
   border-radius: 10px;
   background: var(--surface);
 }
@@ -195,9 +202,15 @@ a {
 .skills-list li {
   padding: 7px 11px;
   border-radius: 999px;
-  background: #eff6ff;
-  color: var(--primary-dark);
+  background: var(--primary-lighter);
+  color: var(--secondary);
   font-size: .9rem;
+}
+
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-md);
 }
 
 .project-grid {
@@ -221,7 +234,7 @@ a {
 }
 
 .project-card p {
-  color: var(--muted);
+  color: var(--gray-medium);
 }
 
 .project-card a {
@@ -234,27 +247,33 @@ a {
   margin: 48px auto 64px;
   padding: 32px;
   border-radius: 12px;
-  background: var(--primary-dark);
+  background: var(--secondary);
   color: var(--surface);
 }
 
 .contact p {
-  color: #dbeafe;
+  color: var(--primary-light);
 }
 
 .contact a {
-  color: #bfdbfe;
+  color: var(--primary-hover);
 }
 
 footer {
   padding: 24px 0;
-  border-top: 1px solid var(--border);
-  color: var(--muted);
+  border-top: 1px solid var(--gray-light);
+  color: var(--gray-medium);
   text-align: center;
   font-size: .9rem;
 }
 
-@media (max-width: 760px) {
+@media (max-width: 1024px) {
+  .service-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
   .navbar {
     align-items: flex-start;
     flex-direction: column;
@@ -263,6 +282,7 @@ footer {
 
   .hero,
   .about-grid,
+  .service-grid,
   .project-grid {
     grid-template-columns: 1fr;
   }
