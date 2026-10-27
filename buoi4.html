@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Trần Khắc Đạt</title>
+    
+    <!-- Thư viện hiển thị Icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- ĐƯỜNG DẪN LIÊN KẾT TỚI FILE CSS (Nằm cùng thư mục) -->
+    <link rel="stylesheet" href="./buoi4.css">
+</head>
+<body>
+
+    <div class="portfolio-wrapper">
+        <!-- CỘT TRÁI (SIDEBAR) -->
+        <aside class="profile-sidebar">
+            <div class="avatar-box">
+                <i class="fa-solid fa-user-astronaut"></i>
+            </div>
+            <h1 class="profile-name">Trần Khắc Đạt</h1>
+            <p class="profile-role">Sinh viên Công nghệ Thông tin</p>
+            <p class="profile-uni"><i class="fa-solid fa-graduation-cap"></i> Đại học Lạc Hồng (LHU)</p>
+
+            <div class="sidebar-section">
+                <h2 class="sidebar-title"><i class="fa-regular fa-id-card"></i> Thông tin liên hệ</h2>
+                <ul class="info-list">
+                    <li><i class="fa-solid fa-cake-candles"></i> 14/01/2007</li>
+                    <li><i class="fa-solid fa-location-dot"></i> Đồng Nai, Việt Nam</li>
+                    <li><i class="fa-solid fa-envelope"></i> dat.tk@lhu.edu.vn</li>
+                    <li><i class="fa-brands fa-github"></i> github.com/trankhacdat</li>
+                </ul>
+            </div>
+
+            <div class="sidebar-section">
+                <h2 class="sidebar-title"><i class="fa-solid fa-code"></i> Kỹ năng kỹ thuật</h2>
+                <div class="skill-tags">
+                    <span class="skill-tag">HTML5 / CSS3</span>
+                    <span class="skill-tag">JavaScript</span>
+                    <span class="skill-tag">Figma (UI/UX)</span>
+                    <span class="skill-tag">WordPress</span>
+                    <span class="skill-tag">Python (OOP, NumPy)</span>
+                    <span class="skill-tag">SQL Server (T-SQL)</span>
+                    <span class="skill-tag">ESP32 / ESP-NOW</span>
+                    <span class="skill-tag">ERD Design</span>
+                </div>
+            </div>
+
+            <div class="sidebar-section">
+                <h2 class="sidebar-title"><i class="fa-solid fa-bolt"></i> Hoạt động & Sở thích</h2>
+                <ul class="info-list">
+                    <li><i class="fa-solid fa-person-swimming"></i> Bơi lội, chạy bộ & nhảy dây</li>
+                    <li><i class="fa-solid fa-motorcycle"></i> Tìm hiểu kỹ thuật mô tô phân khối lớn</li>
+                    <li><i class="fa-solid fa-headphones"></i> Nhạc US/UK & Rèn luyện Tiếng Anh</li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- CỘT PHẢI (MAIN CONTENT) -->
+        <main class="main-content">
+            <!-- Khối Giới thiệu -->
+            <section class="content-card">
+                <p class="eyebrow">Giới thiệu</p>
+                <h2 class="section-heading">Về Bản Thân Tôi</h2>
+                <p>Xin chào! Tôi là <strong>Trần Khắc Đạt</strong>, sinh viên ngành Công nghệ Thông tin tại <strong>Trường Đại học Lạc Hồng</strong>. Tôi yêu thích việc xây dựng các giao diện web hiện đại theo chuẩn Design System, thiết kế trải nghiệm người dùng (UI/UX) trên Figma, phát triển phần mềm bằng Python và nghiên cứu các giải pháp nhà thông minh với vi điều khiển ESP32.</p>
+            </section>
+
+            <!-- Khối Dịch vụ (Hoạt động 3: 4 cột -> 2 cột -> 1 cột) -->
+            <section class="content-card">
+                <p class="eyebrow">Lĩnh vực chuyên môn</p>
+                <h2 class="section-heading">Dịch Vụ Cung Cấp (Services)</h2>
+                <div class="services-container">
+                    <article class="service-box">
+                        <div class="service-icon"><i class="fa-solid fa-laptop-code"></i></div>
+                        <h3>Phát triển Web</h3>
+                        <p>Xây dựng giao diện Responsive với HTML5, CSS3 Grid/Flexbox, JavaScript và tùy biến giao diện WordPress.</p>
+                    </article>
+
+                    <article class="service-box">
+                        <div class="service-icon"><i class="fa-brands fa-figma"></i></div>
+                        <h3>Thiết kế UI/UX</h3>
+                        <p>Thiết kế User Flow, Wireframe, Component Library và Prototype tương tác trên Figma.</p>
+                    </article>
+
+                    <article class="service-box">
+                        <div class="service-icon"><i class="fa-solid fa-microchip"></i></div>
+                        <h3>Giải pháp IoT</h3>
+                        <p>Lập trình vi điều khiển ESP32, tích hợp cảm biến tự động và truyền thông không dây ESP-NOW.</p>
+                    </article>
+
+                    <article class="service-box">
+                        <div class="service-icon"><i class="fa-solid fa-database"></i></div>
+                        <h3>Cơ sở dữ liệu</h3>
+                        <p>Thiết kế sơ đồ thực thể kết hợp (ERD), chuẩn hóa dữ liệu và truy vấn T-SQL trên SQL Server.</p>
+                    </article>
+                </div>
+            </section>
+
+            <!-- Khối Dự án -->
+            <section class="content-card">
+                <p class="eyebrow">Sản phẩm thực tế</p>
+                <h2 class="section-heading">Dự Án Học Tập Tiêu Biểu</h2>
+                <div class="projects-grid">
+                    <article class="service-box">
+                        <div class="service-icon"><i class="fa-solid fa-wallet"></i></div>
+                        <h3>Ứng dụng "Money Lovers"</h3>
+                        <p>Thiết kế UI/UX hoàn chỉnh trên Figma cho ứng dụng quản lý tài chính cá nhân với hệ thống biến và component đồng bộ.</p>
+                    </article>
+
+                    <article class="service-box">
+                        <div class="service-icon"><i class="fa-solid fa-lightbulb"></i></div>
+                        <h3>Hệ thống Đèn thông minh ESP32</h3>
+                        <p>Xây dựng mạch cảm biến tự động điều khiển ánh sáng và giao tiếp không dây phục vụ môn học Internet of Things.</p>
+                    </article>
+
+                    <article class="service-box">
+                        <div class="service-icon"><i class="fa-solid fa-gamepad"></i></div>
+                        <h3>Game Bingo bằng Python</h3>
+                        <p>Phát triển logic trò chơi, xử lý mảng hai chiều, kiểm thử các trường hợp biên (test cases) trong nhóm 3 thành viên.</p>
+                    </article>
+
+                    <article class="service-box">
+                        <div class="service-icon"><i class="fa-solid fa-diagram-project"></i></div>
+                        <h3>Quản lý CSDL SQL Server</h3>
+                        <p>Phân tích mô hình ERD và viết các truy vấn T-SQL phục vụ bài toán quản lý dữ liệu thực tế.</p>
+                    </article>
+                </div>
+            </section>
+        </main>
+    </div>
+
+</body>
+</html>
